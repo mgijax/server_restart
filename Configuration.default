@@ -1,0 +1,50 @@
+#!/bin/sh
+
+#
+#  If the MGICONFIG environment variable does not have a local override,
+#  use the default "live" settings.
+#
+if [ "${MGICONFIG}" = "" ]
+then
+    MGICONFIG=/usr/local/mgi/live/mgiconfig
+    export MGICONFIG
+fi
+
+. ${MGICONFIG}/master.config.sh
+
+#
+# Directory paths
+#
+BASE_DIR=/mgi/se/server_admin
+PRODUCT_DIR=${BASE_DIR}/server_restart
+FLAG_DIR=${PRODUCT_DIR}/flags
+LOG_DIR=${PRODUCT_DIR}/logs
+
+export BASE_DIR PRODUCT_DIR FLAG_DIR LOG_DIR
+
+#
+# Flag paths for test servers
+#
+F_BHMGIDEVDB01=${FLAG_DIR}/bhmgidevdb01.ready
+F_BHMGIDB07LD=${FLAG_DIR}/bhmgidb07ld.ready
+F_BHMGIDB01LT=${FLAG_DIR}/bhmgidb01lt.ready
+
+export F_BHMGIDEVDB01 F_BHMGIDB07LD F_BHMGIDB01LT
+
+#
+# Flag paths for production servers
+#
+F_BHMGIDB01=${FLAG_DIR}/bhmgidb01.ready
+F_BHMGIDB07LP=${FLAG_DIR}/bhmgidb07lp.ready
+
+export F_BHMGIDB01 F_BHMGIDB07LP
+
+#
+# Flag paths for public/robot servers
+#
+F_BHMGIPUBDB01LP=${FLAG_DIR}/bhmgipubdb01lp.ready
+F_BHMGIPUBDB02LP=${FLAG_DIR}/bhmgipubdb02lp.ready
+F_BHMGIROBDB01LP=${FLAG_DIR}/bhmgirobdb01lp.ready
+F_BHMGIROBDB02LP=${FLAG_DIR}/bhmgirobdb02lp.ready
+
+export F_BHMGIPUBDB01LP F_BHMGIPUBDB02LP F_BHMGIROBDB01LP F_BHMGIROBDB02LP
