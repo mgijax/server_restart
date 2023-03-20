@@ -1,0 +1,27 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+#
+# Remove any flag files that were created more than 2 hours ago. This should
+# find any flags that were not set by the current group of server reboots.
+#
+date >> ${LOG}
+echo "Remove prior flags" >> ${LOG}
+/usr/bin/find ${FLAG_DIR} -type f -mmin +120 -exec rm -f {} \;
+
+date >> ${LOG}
+echo "Stop Java API" >> ${LOG}
+${LOADADMIN}/bin/stopApi
+
+date >> ${LOG}
+echo "Stop PWI" >> ${LOG}
+${LOADADMIN}/bin/stopPwi
+
+date >> ${LOG}
+exit 0

@@ -1,0 +1,21 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+. ./wait.sh
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Wait for the database to be ready" >> ${LOG}
+waitFor ${F_BHMGIROBDB01LP}
+
+date >> ${LOG}
+echo "Start Fewi" >> ${LOG}
+${LOADADMIN}/jboss/startFewi
+
+date >> ${LOG}
+exit 0

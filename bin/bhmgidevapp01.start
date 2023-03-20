@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Start BLAT server" >> ${LOG}
+${ASSEMBLY_TO_NIB}/bin/start_blatserver.sh bhmgidevapp01 9039 /data/research/dna/mouse_build_39_nib
+
+date >> ${LOG}
+echo "Start Jenkins" >> ${LOG}
+/usr/local/mgi/se-admin/jenkins/startJenkins.sh > /dev/null 2>&1
+
+date >> ${LOG}
+exit 0

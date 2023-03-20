@@ -1,0 +1,23 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Stop BLAT server" >> ${LOG}
+PID=`ps -ef | grep "gfServer start" | grep -v grep | awk '{print $2}'`
+if [ "${PID}" != "" ]
+then
+    kill ${PID}
+fi
+
+date >> ${LOG}
+echo "Stop Jenkins" >> ${LOG}
+/usr/local/mgi/se-admin/jenkins/stopJenkins.sh
+
+date >> ${LOG}
+exit 0

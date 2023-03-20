@@ -1,0 +1,29 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+#
+# Remove any flag files that were created more than 2 hours ago. This should
+# find any flags that were not set by the current group of server reboots.
+#
+date >> ${LOG}
+echo "Remove prior flags" >> ${LOG}
+/usr/bin/find ${FLAG_DIR} -type f -mmin +120 -exec rm -f {} \;
+
+date >> ${LOG}
+echo "Stop Postgres" >> ${LOG}
+${PG_DBUTILS}/admin/stopPostgres.csh
+
+if [ $? -ne 0 ]
+then
+    echo "Error stopping postgres" | tee -a ${LOG}
+    exit 1
+fi
+
+date >> ${LOG}
+exit 0

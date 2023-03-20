@@ -1,0 +1,15 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Stop Solr" >> ${LOG}
+/data/solr/stopSolr.sh
+
+date >> ${LOG}
+exit 0
