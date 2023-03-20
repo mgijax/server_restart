@@ -1,0 +1,18 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ./Configuration
+
+if [ ! -d ${FLAG_DIR} ]
+then
+    mkdir -p ${FLAG_DIR}
+fi
+
+if [ ! -d ${LOG_DIR} ]
+then
+    mkdir -p ${LOG_DIR}
+fi
+
+chmod 777 ${FLAG_DIR} ${LOG_DIR}
+chmod 755 bin bin/*
