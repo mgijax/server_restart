@@ -1,0 +1,19 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Start SNP Solr 1" >> ${LOG}
+${SNPINDEXER}/startSolr /data/solr1 18983
+
+date >> ${LOG}
+echo "Start SNP Solr 2" >> ${LOG}
+${SNPINDEXER}/startSolr /data/solr2 28983
+
+date >> ${LOG}
+exit 0
