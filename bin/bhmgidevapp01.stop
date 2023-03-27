@@ -20,4 +20,8 @@ echo "Stop Jenkins" >> ${LOG}
 /usr/local/mgi/se-admin/jenkins/stopJenkins.sh
 
 date >> ${LOG}
+echo "Stop Scrum Jenkins" >> ${LOG}
+/usr/local/mgi/scrum/jenkins/stopJenkins.sh
+
+date >> ${LOG}
 exit 0

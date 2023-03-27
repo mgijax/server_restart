@@ -16,4 +16,8 @@ echo "Start Jenkins" >> ${LOG}
 /usr/local/mgi/se-admin/jenkins/startJenkins.sh > /dev/null 2>&1
 
 date >> ${LOG}
+echo "Start Scrum Jenkins" >> ${LOG}
+/usr/local/mgi/scrum/jenkins/startJenkins.sh > /dev/null 2>&1
+
+date >> ${LOG}
 exit 0
