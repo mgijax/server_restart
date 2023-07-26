@@ -1,3 +1,10 @@
+TAG: server_restart-6-0-22-3
+DATE: 7/26/2023
+STAFF: dbm
+CHANGES:
+1) bhmgidevapp01.start, bhmgidevapp01.start: Move jenkins to bhmgijenkins01lp
+2) bhmgiapp01.start, bhmgiapp01.start: Move jenkins to bhmgijenkins01lp
+
 TAG: server_restart-6-0-22-2
 DATE: 3/27/2023
 STAFF: dbm
