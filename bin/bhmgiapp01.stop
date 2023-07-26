@@ -16,8 +16,4 @@ then
 fi
 
 date >> ${LOG}
-echo "Stop Jenkins" >> ${LOG}
-/usr/local/mgi/se-admin/jenkins/stopJenkins.sh
-
-date >> ${LOG}
 exit 0
