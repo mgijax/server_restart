@@ -12,8 +12,4 @@ echo "Start SNP ElasticSearch 1" >> ${LOG}
 ${LOADADMIN}/bin/startES
 
 date >> ${LOG}
-echo "Start SNP ElasticSearch BOT 1" >> ${LOG}
-${LOADADMIN}/bin/startES_bot
-
-date >> ${LOG}
 exit 0

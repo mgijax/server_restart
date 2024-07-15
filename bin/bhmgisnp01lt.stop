@@ -12,8 +12,4 @@ echo "Stop SNP ElasticSearch 1" >> ${LOG}
 ${LOADADMIN}/bin/stopES
 
 date >> ${LOG}
-echo "Stop SNP ElasticSearch BOT 1" >> ${LOG}
-${LOADADMIN}/bin/stopES_bot
-
-date >> ${LOG}
 exit 0
