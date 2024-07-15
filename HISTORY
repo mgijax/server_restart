@@ -1,3 +1,23 @@
+TAG: server_restart-6-0-24-?
+DATE: 07/15/2024
+STAFF: lec
+CHANGES:
+fl2-927/Updates to "server_restart" product
+
+        deleted:    bhmgibsnp01lp.start
+        deleted:    bhmgibsnp01lp.stop
+        deleted:    bhmgipsnp01lp.start
+        deleted:    bhmgipsnp01lp.stop
+        deleted:    bhmgisnpdb01lt.start
+        deleted:    bhmgisnpdb01lt.stop
+
+        new file:   bhmgisnp01lp.start
+        new file:   bhmgisnp01lp.stop
+        new file:   bhmgisnp01lt.start
+        new file:   bhmgisnp01lt.stop
+        new file:   bhmgisnp02lp.start
+        new file:   bhmgisnp02lp.stop
+
 TAG: server_restart-6-0-22-3
 DATE: 7/26/2023
 STAFF: dbm

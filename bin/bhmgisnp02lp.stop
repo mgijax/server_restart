@@ -8,12 +8,12 @@ LOG=${LOG_DIR}/`basename $0`.log
 rm -f ${LOG}; >${LOG}
 
 date >> ${LOG}
-echo "Start SNP Solr 1" >> ${LOG}
-${SNPINDEXER}/startSolr /data/solr1 18983
+echo "Stop SNP ElasticSearch 2" >> ${LOG}
+${LOADADMIN}/bin/stopES
 
 date >> ${LOG}
-echo "Start SNP Solr 2" >> ${LOG}
-${SNPINDEXER}/startSolr /data/solr2 28983
+echo "Stop SNP ElasticSearch BOT 2" >> ${LOG}
+${LOADADMIN}/bin/stopES_bot
 
 date >> ${LOG}
 exit 0
