@@ -1,8 +1,8 @@
-TAG: server_restart-6-0-24-?
-DATE: 07/15/2024
+TAG: server_restart-6-0-24-1
+DATE: 07/23/2024
 STAFF: lec
 CHANGES:
-fl2-927/Updates to "server_restart" product
+fl2-927/Updates to server_restart product
 
         deleted:    bhmgibsnp01lp.start
         deleted:    bhmgibsnp01lp.stop
