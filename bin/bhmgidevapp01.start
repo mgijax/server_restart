@@ -7,6 +7,20 @@ cd `dirname $0`
 LOG=${LOG_DIR}/`basename $0`.log
 rm -f ${LOG}; >${LOG}
 
+. ./wait.sh
+
+date >> ${LOG}
+echo "Wait for the database to be ready" >> ${LOG}
+waitFor ${F_BHMGIDB01}
+
+date >> ${LOG}
+echo "Start Java API" >> ${LOG}
+${LOADADMIN}/bin/startApi
+
+date >> ${LOG}
+echo "Start PWI" >> ${LOG}
+${LOADADMIN}/bin/startPwi
+
 date >> ${LOG}
 echo "Start BLAT server" >> ${LOG}
 ${ASSEMBLY_TO_NIB}/bin/start_blatserver.sh bhmgidevapp01 9039 /data/research/dna/mouse_build_39_nib
