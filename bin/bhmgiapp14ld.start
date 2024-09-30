@@ -1,0 +1,25 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+. ./wait.sh
+
+date >> ${LOG}
+echo "Wait for the database to be ready" >> ${LOG}
+waitFor ${F_MGITESTDB4}
+
+date >> ${LOG}
+echo "Start Java API" >> ${LOG}
+${LOADADMIN}/bin/startApi
+
+date >> ${LOG}
+echo "Start PWI" >> ${LOG}
+${LOADADMIN}/bin/startPwi
+
+date >> ${LOG}
+exit 0
