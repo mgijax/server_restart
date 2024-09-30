@@ -8,6 +8,18 @@ LOG=${LOG_DIR}/`basename $0`.log
 rm -f ${LOG}; >${LOG}
 
 date >> ${LOG}
+echo "Remove prior flags" >> ${LOG}
+/usr/bin/find ${FLAG_DIR} -type f -mmin +120 -exec rm -f {} \;
+
+date >> ${LOG}
+echo "Stop Java API" >> ${LOG}
+${LOADADMIN}/bin/stopApi
+
+date >> ${LOG}
+echo "Stop PWI" >> ${LOG}
+${LOADADMIN}/bin/stopPwi
+
+date >> ${LOG}
 echo "Stop BLAT server" >> ${LOG}
 PID=`ps -ef | grep "gfServer start" | grep -v grep | awk '{print $2}'`
 if [ "${PID}" != "" ]

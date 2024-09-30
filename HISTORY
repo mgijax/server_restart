@@ -1,3 +1,9 @@
+TAG: server_restart-6-0-24-3
+DATE: 09/30/2024
+STAFF: lec
+CHANGES:
+wts2-1554/e4g-10/move PWI/API products to APP servers
+
 TAG: server_restart-6-0-24-2
 DATE: 09/27/2024
 STAFF: lec
