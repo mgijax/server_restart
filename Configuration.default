@@ -23,14 +23,20 @@ LOG_DIR=${PRODUCT_DIR}/logs
 export BASE_DIR PRODUCT_DIR FLAG_DIR LOG_DIR
 
 #
+# Flag paths for scrum servers
+#
+F_MGITESTDB4=${FLAG_DIR}/mgi-testdb4.ready
+
+export F_MGITESTDB4
+
+#
 # Flag paths for test servers
 #
 F_BHMGIDEVDB01=${FLAG_DIR}/bhmgidevdb01.ready
 F_BHMGIDB07LD=${FLAG_DIR}/bhmgidb07ld.ready
 F_BHMGIDB01LT=${FLAG_DIR}/bhmgidb01lt.ready
-F_MGITESTDB4=${FLAG_DIR}/mgi-testdb4.ready
 
-export F_BHMGIDEVDB01 F_BHMGIDB07LD F_BHMGIDB01LT F_MGITESTDB4
+export F_BHMGIDEVDB01 F_BHMGIDB07LD F_BHMGIDB01LT
 
 #
 # Flag paths for production servers
