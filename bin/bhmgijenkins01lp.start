@@ -1,0 +1,44 @@
+#!/bin/sh
+
+cd `dirname $0`
+
+. ../Configuration
+
+LOG=${LOG_DIR}/`basename $0`.log
+rm -f ${LOG}; >${LOG}
+
+date >> ${LOG}
+echo "Start Jenkins (prod)" >> ${LOG}
+cd /usr/local/mgi/prod/jenkins
+./startJenkins.sh
+
+if [ $? -ne 0 ]
+then
+	echo "Error starting Jenkins (prod)" | tee -a ${LOG}
+    exit 1
+fi
+
+date >> ${LOG}
+echo "Start Jenkins (scrum)" >> ${LOG}
+cd /usr/local/mgi/scrum/jenkins
+./startJenkins.sh
+
+if [ $? -ne 0 ]
+then
+	echo "Error starting Jenkins (scrum)" | tee -a ${LOG}
+    exit 1
+fi
+
+date >> ${LOG}
+echo "Start Jenkins (test)" >> ${LOG}
+cd /usr/local/mgi/test/jenkins
+./startJenkins.sh
+
+if [ $? -ne 0 ]
+then
+	echo "Error starting Jenkins (test)" | tee -a ${LOG}
+    exit 1
+fi
+
+date >> ${LOG}
+exit 0
